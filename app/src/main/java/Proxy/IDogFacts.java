@@ -7,4 +7,6 @@ public interface IDogFacts {
     public List<Fact> getAllDogFacts();
 
     public Fact getDogFact(int id);
+
+    public Fact getRandomFact();
 }

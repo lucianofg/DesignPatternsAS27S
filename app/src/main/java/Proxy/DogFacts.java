@@ -62,4 +62,23 @@ public class DogFacts implements IDogFacts {
             return new Fact(0, null, null);
         }
     }
+
+    @Override
+    public Fact getRandomFact() {
+        var client = HttpClient.newHttpClient();
+        var request = HttpRequest.newBuilder(URI.create(this.baseUrl + "?number=1"))
+                .timeout(Duration.ofSeconds(10))
+                .GET()
+                .build();
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            JSONParser parser = new JSONParser();
+            JSONArray arr = (JSONArray) parser.parse(response.body());
+            JSONObject obj = (JSONObject) arr.get(0);
+            return new Fact(1, "dog", obj.get("fact").toString());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new Fact(0, null, null);
+        }
+    }
 }

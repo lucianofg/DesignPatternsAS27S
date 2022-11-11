@@ -2,11 +2,13 @@ package Proxy;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Random;
 
 public class DogFactsCached implements IDogFacts {
 
     private final IDogFacts service;
     private List<Fact> factsCache;
+    private Fact currentFact;
     private LocalDateTime lastUpdated;
 
     public DogFactsCached(IDogFacts service) {
@@ -16,18 +18,19 @@ public class DogFactsCached implements IDogFacts {
 
     @Override
     public List<Fact> getAllDogFacts() {
-        if (this.factsCache == null || this.cacheNeedReset()) {
-            this.fetchFacts();
-        }
-        return factsCache;
+        this.fetchFacts();
+        return this.factsCache;
     }
 
     @Override
     public Fact getDogFact(int id) {
-        if (this.factsCache == null || this.cacheNeedReset()) {
-            this.fetchFacts();
+        if (this.currentFact.getId() == id) {
+            return this.currentFact;
         }
-        return this.factsCache.get(id);
+        this.fetchFacts();
+
+        this.currentFact = this.factsCache.get(id);
+        return this.currentFact;
     }
 
     private boolean cacheNeedReset() {
@@ -36,7 +39,16 @@ public class DogFactsCached implements IDogFacts {
     }
 
     private void fetchFacts() {
-        this.lastUpdated = LocalDateTime.now();
-        this.factsCache = service.getAllDogFacts();
+        if (this.factsCache == null || this.cacheNeedReset()) {
+            this.lastUpdated = LocalDateTime.now();
+            this.factsCache = service.getAllDogFacts();
+        }
+    }
+
+    @Override
+    public Fact getRandomFact() {
+        this.fetchFacts();
+        Random rand = new Random();
+        return this.factsCache.get(rand.nextInt(this.factsCache.size()));
     }
 }
