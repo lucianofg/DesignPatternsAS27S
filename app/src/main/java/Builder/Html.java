@@ -3,9 +3,9 @@ package Builder;
 public class Html {
 
     private String rawText;
-    private String title;
-    private String lines[];
-    private String author;
+    private final String title;
+    private final String lines[];
+    private final String author;
 
     public Html(String title, String text, String author) {
         this.title = title;

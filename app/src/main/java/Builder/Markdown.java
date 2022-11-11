@@ -3,9 +3,9 @@ package Builder;
 public class Markdown {
 
     private String rawText;
-    private String title;
-    private String[] lines;
-    private String author;
+    private final String title;
+    private final String[] lines;
+    private final String author;
 
     public Markdown(String title, String text, String author) {
         this.title = title;
@@ -33,17 +33,5 @@ public class Markdown {
 
     public String getRawText() {
         return this.rawText;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public void setLines(String[] lines) {
-        this.lines = lines;
     }
 }

@@ -15,7 +15,7 @@ public class ChessboardSnapshot {
 
     public ChessboardSnapshot(Chessboard chessboard, char[][] board) {
         this.chessboard = chessboard;
-        
+
         this.board = new char[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
