@@ -18,11 +18,15 @@ public class Markdown {
     private void makeRawText() {
         StringBuilder newRawText = new StringBuilder();
 
-        newRawText.append(String.format("# %s\n\n", this.title));
+        newRawText.append(String.format("%s\n", this.title));
+        for (int i = 0; i < this.title.length(); i++) {
+            newRawText.append('=');
+        }
+        newRawText.append("\n\n");
         for (String line : this.lines) {
             newRawText.append(String.format("%s\n\n", line));
         }
-        newRawText.append(String.format("Author: %s\n", this.author));
+        newRawText.append(String.format("*Author: %s*\n", this.author));
 
         this.rawText = newRawText.toString();
     }

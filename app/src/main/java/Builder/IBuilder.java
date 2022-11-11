@@ -1,6 +1,6 @@
 package Builder;
 
-public interface Builder {
+public interface IBuilder {
 
     public void setTitle(String title);
 

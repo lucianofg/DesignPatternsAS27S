@@ -1,6 +1,6 @@
 package Builder;
 
-public class MarkdownBuilder implements Builder {
+public class MarkdownBuilder implements IBuilder {
 
     private String title;
     private String text;

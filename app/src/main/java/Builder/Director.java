@@ -2,7 +2,7 @@ package Builder;
 
 public class Director {
 
-    public void constructLorenIpsum(Builder builder) {
+    public void constructLorenIpsum(IBuilder builder) {
         builder.setTitle("Loren Ipsum");
         builder.setAuthor("https://www.lipsum.com/");
         builder.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet erat sed purus "

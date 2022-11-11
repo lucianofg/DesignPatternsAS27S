@@ -1,6 +1,6 @@
 package Builder;
 
-public class HtmlBuilder implements Builder {
+public class HtmlBuilder implements IBuilder {
 
     private String title;
     private String text;
