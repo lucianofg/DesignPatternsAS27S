@@ -1,6 +1,7 @@
 package Builder;
 
 public class Director {
+
     public void constructLorenIpsum(Builder builder) {
         builder.setTitle("Loren Ipsum");
         builder.setAuthor("https://www.lipsum.com/");

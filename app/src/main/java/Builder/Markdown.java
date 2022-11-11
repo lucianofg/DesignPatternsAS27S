@@ -1,6 +1,7 @@
 package Builder;
 
 public class Markdown {
+
     private String rawText;
     private String title;
     private String[] lines;

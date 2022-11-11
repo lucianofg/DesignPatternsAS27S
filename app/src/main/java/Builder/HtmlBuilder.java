@@ -1,6 +1,7 @@
 package Builder;
 
 public class HtmlBuilder implements Builder {
+
     private String title;
     private String text;
     private String author;
