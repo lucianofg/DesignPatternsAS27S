@@ -33,6 +33,13 @@ public class DogFactsCached implements IDogFacts {
         return this.currentFact;
     }
 
+    @Override
+    public Fact getRandomFact() {
+        this.fetchFacts();
+        Random rand = new Random();
+        return this.factsCache.get(rand.nextInt(this.factsCache.size()));
+    }
+
     private boolean cacheNeedReset() {
         return this.lastUpdated.plusMinutes(10)
                 .isAfter(LocalDateTime.now());
@@ -43,12 +50,5 @@ public class DogFactsCached implements IDogFacts {
             this.lastUpdated = LocalDateTime.now();
             this.factsCache = service.getAllDogFacts();
         }
-    }
-
-    @Override
-    public Fact getRandomFact() {
-        this.fetchFacts();
-        Random rand = new Random();
-        return this.factsCache.get(rand.nextInt(this.factsCache.size()));
     }
 }

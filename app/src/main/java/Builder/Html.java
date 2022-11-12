@@ -18,8 +18,12 @@ public class Html {
     private void makeRawText() {
         StringBuilder newRawText = new StringBuilder();
 
-        newRawText.append(String.format("<html>\n\t<head>\n\t\t<title>%s</title>\n\t</head>"
-                + "\n\t<body>\n\t\t<h1>%s</h1>", this.title, this.title));
+        newRawText.append(String.format("<html>"
+                        + "\n\t<head>"
+                        + "\n\t\t<title>%s</title>"
+                        + "\n\t</head>"
+                        + "\n\t<body>"
+                        + "\n\t\t<h1>%s</h1>", this.title, this.title));
         for (String line : this.lines) {
             newRawText.append(String.format("\n\t\t<p>%s</p>", line));
         }

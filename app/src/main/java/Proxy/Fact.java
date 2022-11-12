@@ -4,8 +4,6 @@
  */
 package Proxy;
 
-import java.util.UUID;
-
 /**
  *
  * @author luciano
