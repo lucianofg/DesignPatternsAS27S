@@ -7,7 +7,8 @@ public class MarkdownBuilder implements IBuilder {
     private String author;
 
     public Markdown getResult() {
-        return new Markdown(title, text, author);
+        String[] lines = text.split(System.getProperty("line.separator"));
+        return new Markdown(title, lines, author);
     }
 
     @Override

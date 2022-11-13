@@ -7,10 +7,10 @@ public class Html {
     private final String lines[];
     private final String author;
 
-    public Html(String title, String text, String author) {
+    public Html(String title, String[] lines, String author) {
         this.title = title;
         this.author = author;
-        this.lines = text.split(System.getProperty("line.separator"));
+        this.lines = lines;
 
         this.makeRawText();
     }

@@ -7,9 +7,9 @@ public class Markdown {
     private final String[] lines;
     private final String author;
 
-    public Markdown(String title, String text, String author) {
+    public Markdown(String title, String[] lines, String author) {
         this.title = title;
-        this.lines = text.split(System.getProperty("line.separator"));
+        this.lines = lines;
         this.author = author;
 
         this.makeRawText();

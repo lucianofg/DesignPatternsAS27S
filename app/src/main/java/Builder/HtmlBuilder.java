@@ -7,7 +7,8 @@ public class HtmlBuilder implements IBuilder {
     private String author;
 
     public Html getResult() {
-        return new Html(title, text, author);
+        String[] lines = text.split(System.getProperty("line.separator"));
+        return new Html(title, lines, author);
     }
 
     @Override

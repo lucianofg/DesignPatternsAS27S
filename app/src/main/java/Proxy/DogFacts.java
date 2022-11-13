@@ -14,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 
 public class DogFacts implements IDogFacts {
 
-    public final String baseUrl = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs";
+    private final String baseUrl = "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs";
 
     @Override
     public List<Fact> getAllDogFacts() {
